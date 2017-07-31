@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         php-soap \
         zlib1g-dev \
         libicu-dev \
-        g++
+        g++ \
+        git
 
 ## Install mcrypt and gd
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt \
@@ -61,6 +62,14 @@ RUN docker-php-ext-configure intl \
 RUN pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis 
+
+## Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+## Install NodeJS and NVM
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+    && apt install nodejs \
+    && apt install build-essential 
 
 RUN usermod -u 1000 www-data
 
