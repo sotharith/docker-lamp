@@ -14,7 +14,7 @@ services:
             - ./apache/v-hosts/:/etc/apache2/sites-available
             - ./apache/v-hosts/:/etc/apache2/sites-enabled
             - ./apache/php.ini:/usr/local/etc/php/php.ini
-            - ../Laravels:/var/www/html/
+            - ./htdocs:/var/www/html/
         networks:
             - backend
 
