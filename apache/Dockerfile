@@ -71,7 +71,16 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt install nodejs \
     && apt install build-essential 
 
+## Install Gulp
+RUN npm install -g gulp
+
+## Install wkhtml
+RUN apt install xvfb libfontconfig wkhtmltopdf -y
+
+RUN a2enmod rewrite
+
 RUN usermod -u 1000 www-data
+RUN chown -R www-data:www-data /var/www
 
 WORKDIR /var/www/html
 

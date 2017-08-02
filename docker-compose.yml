@@ -9,11 +9,12 @@ services:
             context: ./apache
         ports:
             - '80:80'
+            - '3000:3000'
         volumes:
             - ./apache/v-hosts/:/etc/apache2/sites-available
             - ./apache/v-hosts/:/etc/apache2/sites-enabled
             - ./apache/php.ini:/usr/local/etc/php/php.ini
-            - ./htdocs:/var/www/html/
+            - ../Laravels:/var/www/html/
         networks:
             - backend
 
