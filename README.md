@@ -1,2 +1,2 @@
 # docker-lamp
-Docker LEMP Stack for Laravel application development. This image contain apache, php, mariadb, postgres, mongodb and phpmyadmin. 
+Docker LAMP Stack for Laravel application development. This image contain apache, php, mariadb, postgres, mongodb and phpmyadmin. 
